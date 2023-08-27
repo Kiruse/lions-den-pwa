@@ -1,0 +1,5 @@
+/.vscode/settings.json
+data/
+node_modules/
+public/
+tmp/

@@ -1,0 +1,13 @@
+@use './_theme' as *
+
+html, body
+  font-family: sans-serif
+  font-size: 14px
+  margin: 0
+  padding: 0
+
+@for $i from 1 to 6
+  h#{$i}
+    font-size: calc(2.4rem - #{$i * 0.2rem})
+    margin: 0
+    padding: 0
