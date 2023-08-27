@@ -1,5 +1,8 @@
 @use './_theme' as *
 
+*
+  box-sizing: border-box
+
 html, body
   font-family: sans-serif
   font-size: 14px
@@ -11,3 +14,24 @@ html, body
     font-size: calc(2.4rem - #{$i * 0.2rem})
     margin: 0
     padding: 0
+
+a, a:visited
+  color: $highlightOnSurface
+  text-decoration: none
+  &:hover
+    text-decoration: underline
+
+#omega
+  display: flex
+  flex-direction: column
+  align-items: stretch
+  width: 100vw
+  height: 100vh
+  overflow: auto
+
+.surface
+  color: $onSurface
+  background-color: $surface
+
+  a, a:visited
+    color: $highlightOnSurface
