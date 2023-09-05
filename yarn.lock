@@ -4111,6 +4111,11 @@ jake@^10.8.5:
     filelist "^1.0.4"
     minimatch "^3.1.2"
 
+javascript-stringify@^2.0.1:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/javascript-stringify/-/javascript-stringify-2.1.0.tgz#27c76539be14d8bd128219a2d731b09337904e79"
+  integrity sha512-JVAfqNPTvNq3sB/VHQJAFxN/sPgKnsKrCwyRt15zwNCdrMMJDdcEOdubuy+DuJYYdm0ox1J4uzEuYKkN+9yhVg==
+
 jest-worker@^26.2.1:
   version "26.6.2"
   resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-26.6.2.tgz#7f72cbc4d643c365e27b9fd775f9d0eaa9c7a8ed"
@@ -6046,7 +6051,7 @@ typescript@4.9.5:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.9.5.tgz#095979f9bcc0d09da324d58d03ce8f8374cbe65a"
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
-typescript@^5.1.6:
+typescript@^5.2.2:
   version "5.2.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.2.2.tgz#5ebb5e5a5b75f085f22bc3f8460fba308310fa78"
   integrity sha512-mI4WrpHsbCIcwT9cF4FZvr80QUeKvsUsUvKDoR+X/7XHQH98xYD8YHZg7ANtz2GtZt/CBq2QJ0thkGJMHfqc1w==
@@ -6697,6 +6702,20 @@ yallist@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-4.0.0.tgz#9bb92790d9c0effec63be73519e11a35019a3a72"
   integrity sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==
+
+yaml-loader@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/yaml-loader/-/yaml-loader-0.8.0.tgz#c839325e3fdee082b3768b2a21fe34fde5d96f61"
+  integrity sha512-LjeKnTzVBKWiQBeE2L9ssl6WprqaUIxCSNs5tle8PaDydgu3wVFXTbMfsvF2MSErpy9TDVa092n4q6adYwJaWg==
+  dependencies:
+    javascript-stringify "^2.0.1"
+    loader-utils "^2.0.0"
+    yaml "^2.0.0"
+
+yaml@^2.0.0:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.3.1.tgz#02fe0975d23cd441242aa7204e09fc28ac2ac33b"
+  integrity sha512-2eHWfjaoXgTBC2jNM1LRef62VQa0umtvRiDSk6HSzW7RvS5YtkabJrwYLLEKWBc8a5U2PTSCs+dJjUTJdlHsWQ==
 
 yargs-parser@^18.1.2:
   version "18.1.3"

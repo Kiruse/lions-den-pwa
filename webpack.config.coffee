@@ -2,10 +2,12 @@ path = require 'path'
 HtmlWebpackPlugin = require 'html-webpack-plugin'
 {VueLoaderPlugin} = require 'vue-loader'
 WorkboxPlugin = require 'workbox-webpack-plugin'
+RoutesPlugin = require './plugins/routes-plugin'
 
 ASSETSPATH     = path.resolve __dirname, 'assets'
 VIEWPATH       = path.resolve __dirname, 'views'
 LIBPATH        = path.resolve __dirname, 'lib'
+HOOKSPATH      = path.resolve __dirname, 'hooks'
 COMPONENTSPATH = path.resolve __dirname, 'components'
 
 module.exports =
@@ -25,6 +27,7 @@ module.exports =
       '@/styles': path.resolve ASSETSPATH, 'styles'
       '@/lib':    LIBPATH
       '@/views':  VIEWPATH
+      '@/hooks':  HOOKSPATH
       '@/comp':   COMPONENTSPATH
       '@/stores': path.resolve __dirname, 'stores'
       # '@common':  path.resolve __dirname, 'api', 'v1', '_common'
@@ -60,6 +63,9 @@ module.exports =
       test: /\.vue$/
       use: 'vue-loader'
     ,
+      test: /\.ya?ml$/
+      use: 'yaml-loader'
+    ,
       test: /\.(png|svg|jpg|gif)$/
       use: 'file-loader'
     ,
@@ -75,4 +81,5 @@ module.exports =
       skipWaiting: true
       clientsClaim: true
     # new WorkboxPlugin.InjectManifest()
+    new RoutesPlugin()
   ]

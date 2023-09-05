@@ -1,26 +1,15 @@
 <template lang="pug">
 #omega.AppRoot
   NavBar
-  component.AppRoot-content(:is='routeComponent')
+  Router.AppRoot-content
 </template>
 
 <script lang="coffee">
-import { watch } from 'vue'
-import useRoute from '@/stores/route'
 import NavBar from '@/comp/navbar'
-import HomePage from '@/views/home.vue'
-import NotFoundPage from '@/views/not-found.vue'
+import Router from '@/comp/router'
 
 export default
-  components: { NavBar }
-  setup: -> useRoute()
-  computed:
-    routeComponent: ->
-      switch @route
-        when '', '/', '/home'
-          HomePage
-        else
-          NotFoundPage
+  components: { NavBar, Router }
 </script>
 
 <style lang="sass">
