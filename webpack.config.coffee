@@ -18,7 +18,7 @@ module.exports =
     vue: 'vue'
   resolve:
     extensions: [
-      '.coffee', '.js', '.ts', '.pug', '.sass', '.scss', '.vue',
+      '.coffee', '.js', '.ts', '.vue', '.pug', '.sass', '.scss',
       '.png', '.svg', '.jpg', '.gif',
     ]
     alias:
@@ -65,6 +65,9 @@ module.exports =
     ,
       test: /\.ya?ml$/
       use: 'yaml-loader'
+    ,
+      test: /\.md$/
+      use: 'raw-loader'
     ,
       test: /\.(png|svg|jpg|gif)$/
       use: 'file-loader'
