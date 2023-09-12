@@ -6,14 +6,17 @@
   "license": "GPL-3.0",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "watch": "webpack --watch --mode development",
+    "watch": "webpack --watch --mode production",
     "webpack:serve": "webpack serve --mode development"
   },
   "dependencies": {
     "@keplr-wallet/cosmos": "^0.12.20",
     "@types/jsonwebtoken": "^9.0.2",
     "@vercel/node": "^2.15.10",
-    "jsonwebtoken": "^9.0.1",
+    "dotenv": "^16.3.1",
+    "firebase": "^10.3.1",
+    "firebase-admin": "^11.10.1",
+    "jsonwebtoken": "^9.0.2",
     "qrcode": "^1.5.3",
     "rehype-sanitize": "^6.0.0",
     "rehype-stringify": "^10.0.0",
@@ -21,9 +24,11 @@
     "remark-parse": "^10.0.2",
     "remark-rehype": "^10.1.0",
     "unified": "^11.0.3",
+    "uuid": "^9.0.0",
     "vue": "3.2"
   },
   "devDependencies": {
+    "@types/uuid": "^9.0.3",
     "@vue/compiler-dom": "^3.3.4",
     "@vue/compiler-sfc": "^3.3.4",
     "coffee-loader": "^4.0.0",

@@ -1,8 +1,10 @@
 path = require 'path'
 HtmlWebpackPlugin = require 'html-webpack-plugin'
 {VueLoaderPlugin} = require 'vue-loader'
+{EnvironmentPlugin} = require 'webpack'
 WorkboxPlugin = require 'workbox-webpack-plugin'
 RoutesPlugin = require './plugins/routes-plugin'
+require 'dotenv/config'
 
 ASSETSPATH     = path.resolve __dirname, 'assets'
 VIEWPATH       = path.resolve __dirname, 'views'
@@ -76,6 +78,7 @@ module.exports =
       use: 'raw-loader'
     ]
   plugins: [
+    new EnvironmentPlugin ['APIURL']
     new VueLoaderPlugin()
     new HtmlWebpackPlugin
       template: path.resolve ASSETSPATH, 'app.pug'

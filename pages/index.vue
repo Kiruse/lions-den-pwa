@@ -12,9 +12,6 @@
 </template>
 
 <style lang="sass" scoped>
-.Page-header
-  margin-bottom: 60px
-
 .Article
   max-width: 800px
   margin: 0 auto
