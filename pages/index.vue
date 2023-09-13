@@ -25,8 +25,11 @@ export default
   setup: -> useAccounts()
   data: ->
     articles: []
+  mounted: -> await @loadNews()
   watch:
-    accounts: (val) ->
-      return unless val
+    accounts: -> await @loadNews()
+  methods:
+    loadNews: ->
+      return unless @accounts?.firebase
       @articles = await getNews()
 </script>
