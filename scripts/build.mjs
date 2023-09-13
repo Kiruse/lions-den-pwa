@@ -30,7 +30,7 @@ async function rebuild() {
 
   global._rebuildAbort = new AbortController();
   await Promise.all([
-    exec('webpack', { signal: global._rebuildAbort.signal }),
+    exec('yarn webpack --mode production', { signal: global._rebuildAbort.signal }),
     fs.cp(filepath('static'), filepath('public'), { recursive: true }).catch(() => {}),
   ]);
   global._rebuildAbort = null;
