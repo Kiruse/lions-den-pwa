@@ -6,6 +6,8 @@ WorkboxPlugin = require 'workbox-webpack-plugin'
 RoutesPlugin = require './plugins/routes-plugin'
 require 'dotenv/config'
 
+process.env.APIURL ?= '/api'
+
 ASSETSPATH     = path.resolve __dirname, 'assets'
 VIEWPATH       = path.resolve __dirname, 'views'
 LIBPATH        = path.resolve __dirname, 'lib'
