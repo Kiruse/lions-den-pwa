@@ -10,7 +10,7 @@ function exec(command, options) {
   return new Promise((resolve, reject) => {
     child_process.exec(command, options, (error, stdout, stderr) => {
       if (error) {
-        reject(error);
+        reject(Object.assign(error, { stdout, stderr }));
       } else {
         resolve({stdout, stderr});
       }
