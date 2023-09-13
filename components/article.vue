@@ -1,13 +1,13 @@
 <template lang="pug">
 .Article
   header
-    h3= title
+    h3= article.title
     .note
-      author(v-show='!!author')= author
+      author(v-show='!!article.author')= article.author
       span ,&nbsp;
       time(v-show='!!date' :datetime='date')= date
   section
-    Markdown(:contents='body')
+    Markdown(:contents='article.content')
 </template>
 
 <style lang="sass">
@@ -23,8 +23,10 @@ import Markdown from './markdown.vue'
 
 export default
   components: { Markdown }
-  props: ['author', 'date', 'contents']
+  props:
+    article:
+      type: Object
+      required: true
   computed:
-    body: -> @contents.split('\n').slice(1).join('\n')
-    title: -> @contents.split('\n')[0].replace(/^#+\s*/, '')
+    date: -> if @article?.date then new Date(@article.date.seconds * 1000).toLocaleDateString() else ''
 </script>

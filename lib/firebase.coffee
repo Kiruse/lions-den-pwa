@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app'
 import * as auth from 'firebase/auth'
+import * as db from 'firebase/firestore'
 import { ref } from 'vue'
 import request from './requests'
 
@@ -34,3 +35,13 @@ auth.getAuth(app).onAuthStateChanged (user) ->
   { firebaseToken } = result.ok
   auth.signInWithCustomToken auth.getAuth(app), firebaseToken
 )()
+
+export getNews = ->
+  inst = db.getFirestore(app)
+  coll = db.collection inst, 'news'
+  { docs } = await db.getDocs(db.query(
+    coll,
+    db.orderBy('date', 'desc'),
+    db.limit(5),
+  ))
+  docs.map (doc) -> doc.data()
