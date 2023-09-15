@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { VercelRequest, VercelResponse } from '@vercel/node';
 
-import { requireEnvar, isKnownJWTError, Result, Err, Ok } from './_utils';
+import { cors, Err, isKnownJWTError, Ok, requireEnvar, Result } from './_utils';
 
 requireEnvar('ANON_SECRET');
 
@@ -14,6 +14,7 @@ export default async function(
   req: VercelRequest,
   res: VercelResponse,
 ) {
+  if (!cors(req, res)) return;
   switch (req.method) {
     case 'GET':  return handleGet(req, res);
     case 'POST': return handlePost(req, res);
