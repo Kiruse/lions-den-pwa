@@ -1,0 +1,23 @@
+export chains =
+  terra:
+    name: 'Terra'
+    chainId: 'phoenix-1'
+    rpc: 'https://phoenix-lcd.terra.dev'
+
+export daos =
+  LionDAO:
+    type: 'token'
+    name: 'Lion DAO'
+    treasury: 'terra17c6ts8grcfrgquhj3haclg44le8s7qkx6l2yx33acguxhpf000xqhnl3je'
+    token: 'terra1lxx40s29qvkrcj8fsa3yzyehy7w50umdvvnls2r830rys6lu2zns63eelv'
+    distributor: 'terra16j3yxfwzytjm7xq7kcdmfyessz8vg6r938hrfkk64nq9dyyqcd9qczudmr'
+  pixeLionsDAO:
+    type: 'nft'
+    name: 'pixeLions DAO'
+    treasury: 'terra1exj6fxvrg6xuukgx4l90ujg3vh6420540mdr6scrj62u2shk33sqnp0stl'
+    token: 'terra17z7fpaa8kah698xn5tarrcucvualdy4wsztkfc404g3garucpu6qmxp50g'
+    distributor: 'terra1tww5gcrc04ak3laqcnayatxl5ze0a8earg5uesvmdmtl6g4njshq38prgz'
+
+export tokens =
+  ROAR: daos.LionDAO.token
+  pixeLions: daos.pixeLionsDAO.token

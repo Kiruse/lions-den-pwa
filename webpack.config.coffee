@@ -1,7 +1,7 @@
 path = require 'path'
 HtmlWebpackPlugin = require 'html-webpack-plugin'
 {VueLoaderPlugin} = require 'vue-loader'
-{EnvironmentPlugin} = require 'webpack'
+{EnvironmentPlugin, ProvidePlugin} = require 'webpack'
 WorkboxPlugin = require 'workbox-webpack-plugin'
 RoutesPlugin = require './plugins/routes-plugin'
 require 'dotenv/config'
@@ -81,13 +81,15 @@ module.exports =
     ]
   plugins: [
     new EnvironmentPlugin ['APIURL']
+    new ProvidePlugin
+      Buffer: ['buffer', 'Buffer']
     new VueLoaderPlugin()
     new HtmlWebpackPlugin
       template: path.resolve ASSETSPATH, 'app.pug'
       filename: '[name].html'
-    new WorkboxPlugin.GenerateSW
-      skipWaiting: true
-      clientsClaim: true
+    # new WorkboxPlugin.GenerateSW
+    #   skipWaiting: true
+    #   clientsClaim: true
     # new WorkboxPlugin.InjectManifest()
     new RoutesPlugin()
   ]

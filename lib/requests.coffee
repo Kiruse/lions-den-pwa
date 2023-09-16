@@ -1,3 +1,5 @@
+import { chains } from './constants'
+
 APIURL = process.env.APIURL.replace /\/+$/, ''
 
 export default request = (opts) ->
@@ -14,6 +16,9 @@ export default request = (opts) ->
 
   switch api
     when 'home' then url = "#{APIURL}/#{url.replace(/^\/+/, '')}"
+  if matches = api.match /^rpc:(.*)$/
+    [, chain] = matches
+    url = "#{chains[chain].rpc}/#{url.replace(/^\/+/, '')}"
 
   if not headers['Authorization'] and global.token
     headers['Authorization'] = "Bearer #{global.token}"

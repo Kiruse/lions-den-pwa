@@ -33,12 +33,15 @@ p
   height: 100vh
   overflow: auto
 
-.surface
-  color: $onSurface
-  background-color: $surface
+.surface, .surface-primary
+  color: var(--on-surface)
+  background-color: rgba(255, 255, 255, 0.1)
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2)
 
   a, a:visited
-    color: $highlightOnSurface
+    color: var(--on-surface-highlight)
+  &.surface-primary
+    background-color: var(--surface-primary)
 
 .center-h
   display: flex
