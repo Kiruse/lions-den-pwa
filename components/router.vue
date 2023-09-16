@@ -30,7 +30,7 @@ export default
   watch:
     route:
       handler: ->
-        @routeComponent = routes[@route] or NotFound
+        @routeComponent = routes[@route or '/'] or NotFound
         @params = {}
 
         # simple case: param-less direct route
