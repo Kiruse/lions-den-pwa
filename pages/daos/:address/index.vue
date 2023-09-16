@@ -56,10 +56,11 @@ h2.Dao-type
 </style>
 
 <script lang="coffee">
+import config from '@/assets/config.yaml'
 import { params } from '@/hooks/route'
-import { daos } from '@/lib/constants'
 import DaoAddress from '@/comp/dao/info-address'
 import DaoLogo from '@/comp/dao/logo'
+{daos} = config
 
 export default
   components: { DaoAddress, DaoLogo }

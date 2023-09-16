@@ -43,7 +43,8 @@ ul.DaoList-root, ol.DaoList-root
 </style>
 
 <script lang="coffee">
-import { daos } from '@/lib/constants'
+import config from '@/assets/config.yaml'
+{daos} = config
 
 export default
   computed:

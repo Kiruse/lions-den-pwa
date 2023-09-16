@@ -1,4 +1,5 @@
-import { chains } from './constants'
+import config from '@/assets/config.yaml'
+{chains} = config
 
 APIURL = process.env.APIURL.replace /\/+$/, ''
 
