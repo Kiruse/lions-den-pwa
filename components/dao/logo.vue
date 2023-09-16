@@ -9,6 +9,8 @@
   flex-direction: column
   align-items: center
   justify-content: center
+  border-radius: 50%
+  overflow: hidden
 </style>
 
 <script lang="coffee">
