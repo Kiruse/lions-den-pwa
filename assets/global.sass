@@ -8,6 +8,8 @@ html, body
   font-size: 16px
   margin: 0
   padding: 0
+  background-color: $background
+  color: $onBackground
 
 @for $i from 1 to 6
   h#{$i}
@@ -42,6 +44,8 @@ p
     color: var(--on-surface-highlight)
   &.surface-primary
     background-color: var(--surface-primary)
+.shadow
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2)
 
 .center-h
   display: flex
@@ -59,8 +63,6 @@ p
   align-items: stretch
   flex-grow: 1
   padding: 1rem
-  background-color: $background
-  color: $onBackground
   overflow: auto
 .Page-header
   margin-bottom: 60px

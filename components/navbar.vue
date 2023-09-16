@@ -1,5 +1,5 @@
 <template lang="pug">
-.NavBar-root.surface-primary
+.NavBar-root.surface-primary.shadow
   a.NavBar-link(href='#/') Home
   a.NavBar-link(href='#/daos') DAOs
   a.NavBar-link(href='#/account') Account
