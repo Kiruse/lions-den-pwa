@@ -3,6 +3,14 @@
   img(v-if='url' :src='url' alt='DAO Logo')
 </template>
 
+<style lang="sass">
+.DaoInfo-logo
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+</style>
+
 <script lang="coffee">
 import { getSmartQuery } from '@/lib/onchain'
 

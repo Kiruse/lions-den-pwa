@@ -3,7 +3,7 @@ ul.DaoList-root
   for dao in daos
     a(:href='`#/daos/${dao.treasury}`')
       li.DaoList-item
-        .DaoList-itemLogo: img(v-if='dao.logo' :src='dao.logo')
+        DaoLogo.DaoList-itemLogo(:address='dao.treasury')
         span.DaoList-itemLabel= dao.name
 </template>
 
@@ -44,9 +44,11 @@ ul.DaoList-root, ol.DaoList-root
 
 <script lang="coffee">
 import config from '@/assets/config.yaml'
+import DaoLogo from '@/comp/dao/logo'
 {daos} = config
 
 export default
+  components: { DaoLogo }
   computed:
     daos: -> Object.values daos
 </script>

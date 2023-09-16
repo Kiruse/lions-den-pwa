@@ -1,10 +1,41 @@
-import { VercelRequest, VercelResponse } from "@vercel/node";
-import { JsonWebTokenError } from "jsonwebtoken";
+import { VercelRequest, VercelResponse } from '@vercel/node';
+import fs from 'fs/promises';
+import { JsonWebTokenError } from 'jsonwebtoken';
+import path from 'path';
+import YAML from 'yaml';
+
+export interface Config {
+  chains: {
+    [chain: string]: {
+      name: string;
+      chainId: string;
+      rpc: string;
+    };
+  };
+  daos: {
+    [dao: string]: {
+      type: 'token' | 'nft';
+      name: string;
+      treasury: string;
+      token: string;
+      distributor: string;
+    };
+  };
+  tokens: Record<string, string>;
+}
 
 export function requireEnvar(name: string) {
   if (!process.env[name]) {
     throw new Error(`Missing environment variable: ${name}`);
   }
+}
+
+let _config: Config | undefined;
+export async function config(): Promise<Config> {
+  if (!_config) {
+    _config = await YAML.parse(await fs.readFile(path.join(__dirname, '../assets/config.yaml'), 'utf8'));
+  }
+  return _config!;
 }
 
 /**
@@ -14,12 +45,14 @@ export function requireEnvar(name: string) {
 export function cors(req: VercelRequest, res: VercelResponse) {
   const { origin } = req.headers;
 
-  if (!isValidOrigin(origin)) {
+  if (origin && !isValidOrigin(origin)) {
     res.status(400).end();
     return false;
   }
 
-  res.setHeader('Access-Control-Allow-Origin', origin);
+  // if no origin, enforce same origin policy
+  if (origin)
+    res.setHeader('Access-Control-Allow-Origin', origin);
   res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS, PATCH, DELETE, POST, PUT');
   res.setHeader(
