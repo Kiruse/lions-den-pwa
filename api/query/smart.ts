@@ -1,6 +1,6 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
 import Cache from '../_cache';
-import { Err, Ok, config } from '../_utils';
+import { Err, Ok, config, cors } from '../_utils';
 
 const cache = new Cache();
 
@@ -8,6 +8,7 @@ export default async function(
   req: VercelRequest,
   res: VercelResponse,
 ) {
+  if (!cors(req, res)) return;
   if (req.method !== 'GET') {
     res.status(405).send('Method Not Allowed');
     return;
