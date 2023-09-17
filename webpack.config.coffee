@@ -44,7 +44,10 @@ module.exports =
       use: 'coffee-loader'
     ,
       test: /\.ts$/
-      use: 'ts-loader'
+      loader: 'ts-loader'
+      options:
+        compilerOptions:
+          noEmit: false
     ,
       test: /\.sass$/
       use: [

@@ -16,8 +16,6 @@
 <script lang="coffee">
 import { getSmartQuery } from '@/lib/onchain'
 
-CACHE = {}
-
 export default
   props:
     address:
@@ -28,10 +26,7 @@ export default
   watch:
     address:
       handler: (address) ->
-        if CACHE[address]
-          @url = CACHE[address]
-          return
-        data = await getSmartQuery address, { dao_info: {} }
-        CACHE[address] = @url = data?.metadata?.logo?.url
+        data = await getSmartQuery address, { dao_info: {} }, '3d'
+        @url = data?.metadata?.logo?.url
       immediate: true
 </script>

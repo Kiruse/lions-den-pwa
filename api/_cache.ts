@@ -53,7 +53,7 @@ export default class Cache {
     this._data[key] = new Cache(-1);
   }
 
-  async get(key: string, getter: () => Promise<any>): Promise<any> {
+  async get(key: string, getter: () => Promise<any>, expires = this.ttl): Promise<any> {
     const proppath = key.split('.');
     const prop = proppath.pop()!;
     const cnt = this._container(proppath);
@@ -61,7 +61,7 @@ export default class Cache {
     if (!cnt.has(prop)) {
       this._store(key, cnt, {
         data: await getter(),
-        expires: Date.now() + this.ttl,
+        expires: Date.now() + expires,
       });
     }
 
