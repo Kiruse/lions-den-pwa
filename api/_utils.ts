@@ -111,11 +111,11 @@ function isValidOrigin(origin: string | undefined | null): origin is string {
   if (!origin || origin === 'null') return false;
 
   const STATIC_HOSTS = [
-    'https://lions-den-pwa.vercel.app/',
-    'https://den.liondao.money/',
+    'https://lions-den-pwa.vercel.app',
+    'https://den.liondao.money',
   ];
 
-  if (STATIC_HOSTS.includes(origin)) return true;
+  if (STATIC_HOSTS.find(host => origin.startsWith(host))) return true;
   if (/^https?:\/\/localhost(:\d+)?$/.test(origin)) return true;
   return false;
 }
