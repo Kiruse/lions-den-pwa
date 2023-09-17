@@ -1,5 +1,5 @@
 <template lang="pug">
-.DaoInfo-logo
+.DaoInfo-logo(:style='_style')
   img(v-if='url' :src='url' alt='DAO Logo')
 </template>
 
@@ -11,6 +11,10 @@
   justify-content: center
   border-radius: 50%
   overflow: hidden
+
+  img, svg
+    max-width: 100%
+    max-height: 100%
 </style>
 
 <script lang="coffee">
@@ -21,8 +25,15 @@ export default
     address:
       type: String
       required: true
+    size:
+      type: Number
+      default: 50
   data: ->
     url: undefined
+  computed:
+    _style: ->
+      width: @size + 'px'
+      height: @size + 'px'
   watch:
     address:
       handler: (address) ->

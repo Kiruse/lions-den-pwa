@@ -33,10 +33,6 @@ ul.DaoList-root, ol.DaoList-root
   height: 50px
   background: transparent
   border-radius: 50%
-
-  img, svg
-    max-width: 100%
-    max-height: 100%
 .DaoList-itemLabel
   font-size: 20px
   font-weight: bold

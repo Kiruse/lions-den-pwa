@@ -8,23 +8,29 @@
         | Note that this is a permissioned website exposing only curated DAOs. The DAO you are
         | looking for might not be listed here.
   else
-    .Dao-details.surface
-      .Dao-title
-        //- DaoLogo.Dao-logo(:address='address')
-        h1.Dao-name.highlight= info.name
-        h2.Dao-type= daoType
-      .Dao-addresses
-        DaoAddress.addr(label='Treasury'    :address='info.treasury')
-        DaoAddress.addr(label='Token'       :address='info.token' v-if='info.token')
-        DaoAddress.addr(label='Distributor' :address='info.distributor')
+    .Dao-detailsContainer.surface
+      DaoLogo.Dao-logo(:address='address' :size='150')
+      .Dao-details
+        .Dao-title
+          h1.Dao-name.highlight= info.name
+          h2.Dao-type= daoType
+        .Dao-addresses
+          DaoAddress.addr(label='Treasury'    :address='info.treasury')
+          DaoAddress.addr(label='Token'       :address='info.token' v-if='info.token')
+          DaoAddress.addr(label='Distributor' :address='info.distributor')
 </template>
 
 <style lang="sass">
-.Dao-details
+.Dao-detailsContainer
+  display: flex
+  flex-direction: row
+  align-items: center
+  gap: 20px
   width: 1000px
   margin: 0 auto
   padding: 20px
-  border-radius: 15px
+.Dao-details
+  flex: 1
 
 .Dao-title
   display: flex
@@ -34,9 +40,6 @@
   padding-bottom: 10px
   margin-bottom: 10px
   border-bottom: 0.5px solid var(--line)
-.Dao-logo
-  max-width: 50px
-  max-height: 50px
 h1.Dao-name
   font-size: 2rem
 h2.Dao-type
