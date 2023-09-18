@@ -18,15 +18,25 @@
           DaoAddress.addr(label='Treasury'    :address='info.treasury')
           DaoAddress.addr(label='Token'       :address='info.token' v-if='info.token')
           DaoAddress.addr(label='Distributor' :address='info.distributor')
+    ul.Dao-links
+      li.Dao-link.surface: a(:href='`#/daos/${address}/props`') Proposals
+      li.Dao-link.surface: a(:href='`#/daos/${address}/discussion`') Dicussions
 </template>
 
 <style lang="sass">
+.Dao-page
+  --page-width: 1000px
+  display: flex
+  flex-direction: column
+  align-items: stretch
+  gap: 20px
+
 .Dao-detailsContainer
   display: flex
   flex-direction: row
   align-items: center
   gap: 20px
-  width: 1000px
+  width: var(--page-width)
   margin: 0 auto
   padding: 20px
 .Dao-details
@@ -56,6 +66,18 @@ h2.Dao-type
   padding: 5px
   border-radius: 5px
   border: 1px solid var(--line)
+
+ul.Dao-links
+  width: var(--page-width)
+  list-style: none
+  margin: 0 auto
+  padding: 0
+.Dao-link > a
+  display: block
+  padding: 20px
+  margin-bottom: 4px
+  &:hover
+    background: rgba(0, 0, 0, 0.1)
 </style>
 
 <script lang="coffee">
