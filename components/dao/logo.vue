@@ -18,11 +18,11 @@
 </style>
 
 <script lang="coffee">
-import { getSmartQuery } from '@/lib/onchain'
+import { getDaoLogos } from '@/lib/queries'
 
 export default
   props:
-    address:
+    dao:
       type: String
       required: true
     size:
@@ -35,9 +35,9 @@ export default
       width: @size + 'px'
       height: @size + 'px'
   watch:
-    address:
-      handler: (address) ->
-        data = await getSmartQuery address, { dao_info: {} }, '3d'
-        @url = data?.metadata?.logo?.url
+    dao:
+      handler: (dao) ->
+        console.log await getDaoLogos()
+        @url = (await getDaoLogos())[dao]
       immediate: true
 </script>

@@ -1,4 +1,8 @@
 chains:
+  test:
+    name: Test
+    chainId: unreal-1
+    rpc: https://example.com
   terra:
     name: Terra
     chainId: phoenix-1

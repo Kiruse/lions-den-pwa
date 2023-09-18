@@ -9,7 +9,7 @@
         | looking for might not be listed here.
   else
     .Dao-detailsContainer.surface
-      DaoLogo.Dao-logo(:address='address' :size='150')
+      DaoLogo.Dao-logo(:dao='id' :size='150')
       .Dao-details
         .Dao-title
           h1.Dao-name.highlight= info.name
@@ -93,7 +93,9 @@ export default
   data: ->
     logo: undefined
   computed:
-    info: -> Object.values(daos).find (dao) => dao.treasury is @params.address
+    entry: -> Object.entries(daos).find ([id, dao]) => dao.treasury is @params.address
+    id: -> @entry?[0]
+    info: -> @entry?[1]
     address: -> @params.address
     daoType: -> switch @info?.type
       when 'token'    then 'Token DAO'

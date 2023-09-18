@@ -3,7 +3,7 @@ ul.DaoList-root
   for dao in daos
     a(:href='`#/daos/${dao.treasury}`')
       li.DaoList-item
-        DaoLogo.DaoList-itemLogo(:address='dao.treasury')
+        DaoLogo.DaoList-itemLogo(:dao='dao.id')
         span.DaoList-itemLabel= dao.name
 </template>
 
@@ -46,5 +46,5 @@ import DaoLogo from '@/comp/dao/logo'
 export default
   components: { DaoLogo }
   computed:
-    daos: -> Object.values daos
+    daos: -> Object.entries(daos).map(([id, dao]) => ({ id, ...dao }))
 </script>
