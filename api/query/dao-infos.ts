@@ -1,11 +1,12 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
-import { config } from '../_utils';
+import { config, cors } from '../_utils';
 import { getDaoMetadata } from './_smart-query';
 
 export default async function(
   req: VercelRequest,
   res: VercelResponse,
 ) {
+  if (!cors(req, res)) return;
   const cfg = await config();
 
   // DAOs are currently only on Terra/Enterprise
