@@ -1,3 +1,9 @@
+import config from '@/assets/config.yaml'
+
+# inject ID into DAO metadata for easier access later
+Object.entries(config.daos).forEach ([id, meta]) => meta.id = id
+export { config }
+
 export zip = (arys...) =>
   len = Math.max arys.map((a) => a.length)...
   result = new Array len
@@ -26,3 +32,7 @@ export parseExpires = (expires) ->
         throw new Error "Invalid expires format: #{expires}"
   else if typeof expires is 'number'
     return expires
+
+export getDaoByAddress = (addr) =>
+  Object.entries config.daos
+    .find ([id, meta]) =>

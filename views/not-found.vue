@@ -1,5 +1,29 @@
 <template lang="pug">
-.NotFound-page
-  h1 Whoops!
-  h2 This page does not seem to exist.
+.NotFound-root.surface
+  header.NotFound-title
+    h1.center-h= title
+    if subtitle
+      h2.center-h= subtitle
+  slot
 </template>
+
+<script lang="coffee">
+export default
+  props:
+    title:
+      type: String
+      default: 'Whoops!'
+    subtitle:
+      type: String
+      default: 'This page does not seem to exist.'
+</script>
+
+<style lang="sass">
+.NotFound-root
+  width: var(--page-width)
+  margin: 0 auto
+  padding: 20px
+
+  > header
+    margin-bottom: 20px
+</style>

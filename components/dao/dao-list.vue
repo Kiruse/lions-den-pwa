@@ -40,7 +40,7 @@ ul.DaoList-root, ol.DaoList-root
 
 <script lang="coffee">
 import config from '@/assets/config.yaml'
-import DaoLogo from '@/comp/dao/logo'
+import DaoLogo from '@/comp/dao/dao-logo'
 {daos} = config
 
 export default

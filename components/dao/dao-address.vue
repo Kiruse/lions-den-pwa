@@ -1,20 +1,20 @@
 <template lang="pug">
-.DaoInfo-address
-  .DaoInfo-addressLabel= label
-  a.DaoInfo-addressValue(
+.DaoAddress-root
+  .DaoAddress-label= label
+  a.DaoAddress-value(
     @click='copyAddress'
     title='Copy address to clipboard'
   )= addressShort
 </template>
 
 <style lang="sass">
-.DaoInfo-address
+.DaoAddress-root
   display: flex
   flex-direction: column
-.DaoInfo-addressLabel
+.DaoAddress-label
   font-size: 0.8rem
   opacity: 0.5
-.DaoInfo-addressValue
+.DaoAddress-value
   font-size: 1rem
   font-weight: 500
   cursor: pointer

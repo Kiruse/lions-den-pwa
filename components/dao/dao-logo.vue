@@ -1,10 +1,10 @@
 <template lang="pug">
-.DaoInfo-logo(:style='_style')
+.DaoLogo(:style='_style')
   img(v-if='url' :src='url' alt='DAO Logo')
 </template>
 
 <style lang="sass">
-.DaoInfo-logo
+.DaoLogo
   display: flex
   flex-direction: column
   align-items: center

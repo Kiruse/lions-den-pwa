@@ -11,7 +11,7 @@
 </style>
 
 <script lang="coffee">
-import DaoList from '@/comp/dao/list'
+import DaoList from '@/comp/dao/dao-list'
 
 export default
   components: { DaoList }
