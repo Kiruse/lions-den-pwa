@@ -37,7 +37,6 @@ export default
   watch:
     dao:
       handler: (dao) ->
-        console.log await getDaoLogos()
         @url = (await getDaoLogos())[dao]
       immediate: true
 </script>
