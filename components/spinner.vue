@@ -42,7 +42,6 @@ svg.Spinner-circle
 export default
   props:
     size:
-      type: Number
       default: 'default'
       validate: (val) -> typeof val is 'number' or val in ['small', 'default', 'large']
     color:

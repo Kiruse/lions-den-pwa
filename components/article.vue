@@ -3,7 +3,7 @@
   header
     h3= article.title
     .note
-      author(v-show='!!article.author')= article.author
+      span(v-show='!!article.author')= article.author
       span ,&nbsp;
       time(v-show='!!date' :datetime='date')= date
   section
