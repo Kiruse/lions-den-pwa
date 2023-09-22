@@ -1,0 +1,21 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "vercel dev",
+      "type": "shell",
+      "command": "vercel dev",
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+    },
+    {
+      "label": "webpack serve",
+      "type": "shell",
+      "command": "yarn webpack:serve",
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+    },
+  ]
+}
