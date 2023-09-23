@@ -1,3 +1,4 @@
+import { Result } from "./_utils";
 
 export interface CacheEntry {
   data: any;
@@ -53,16 +54,21 @@ export default class Cache {
     this._data[key] = new Cache(-1);
   }
 
-  async get(key: string, getter: () => Promise<any>, expires = this.ttl): Promise<any> {
+  async get(key: string, getter: () => Promise<Result>, expires = this.ttl): Promise<any> {
     const proppath = key.split('.');
     const prop = proppath.pop()!;
     const cnt = this._container(proppath);
 
     if (!cnt.has(prop)) {
-      this._store(key, cnt, {
-        data: await getter(),
-        expires: Date.now() + expires,
-      });
+      const result = await getter();
+      if (result.ok) {
+        this._store(key, cnt, {
+          data: result,
+          expires: Date.now() + expires,
+        });
+      } else {
+        return result;
+      }
     }
 
     const result = cnt._data[prop];
