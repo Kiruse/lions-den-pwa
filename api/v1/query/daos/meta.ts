@@ -1,6 +1,6 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
-import { config, cors } from '../_utils';
-import { getDaoMetadata } from './_smart-query';
+import { config, cors } from '../../../_utils';
+import { getDaoMetadata } from '../_smart-query';
 
 export default async function(
   req: VercelRequest,

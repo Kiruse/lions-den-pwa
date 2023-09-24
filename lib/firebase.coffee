@@ -23,11 +23,11 @@ auth.getAuth(app).onAuthStateChanged (user) ->
   result =
     if idToken.value
       await request.post '/login',
-        api: 'home'
+        api: 'home/v1'
         headers:
           Authorization: "Bearer #{idToken.value}"
     else
-      await request.get '/login?type=anonymous', api: 'home'
+      await request.get '/login?type=anonymous', api: 'home/v1'
   if result.err
     console.error "Failed to login to firebase:", result.err, result.response
     return

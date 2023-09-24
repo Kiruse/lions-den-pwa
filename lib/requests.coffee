@@ -13,7 +13,7 @@ export default request = (opts) ->
   } = opts
 
   switch api
-    when 'home' then url = "#{APIURL}/#{url.replace(/^\/+/, '')}"
+    when 'home/v1' then url = "#{APIURL}/v1/#{url.replace(/^\/+/, '')}"
 
   if not headers['Authorization'] and global.token
     headers['Authorization'] = "Bearer #{global.token}"

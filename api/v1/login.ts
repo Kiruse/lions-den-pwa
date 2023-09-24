@@ -1,4 +1,4 @@
-import './_firebase';
+import '../_firebase';
 
 import { getAuth } from 'firebase-admin/auth';
 import jwt from 'jsonwebtoken';
@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { VercelRequest, VercelResponse } from '@vercel/node';
 
-import { cors, Err, isKnownJWTError, Ok, requireEnvar, Result } from './_utils';
+import { cors, Err, isKnownJWTError, Ok, requireEnvar, Result } from '../_utils';
 
 requireEnvar('ANON_SECRET');
 

@@ -34,14 +34,16 @@ module.exports =
       '@/hooks':  HOOKSPATH
       '@/comp':   COMPONENTSPATH
       '@/stores': path.resolve __dirname, 'stores'
-      # '@common':  path.resolve __dirname, 'api', 'v1', '_common'
+      '@common':  path.resolve __dirname, 'api', 'v1', '_common'
   output:
     path: path.resolve __dirname, 'public'
     filename: '[name].js'
   module:
     rules: [
       test: /\.coffee$/
-      use: 'coffee-loader'
+      loader: 'coffee-loader'
+      options:
+        bare: true
     ,
       test: /\.ts$/
       loader: 'ts-loader'
