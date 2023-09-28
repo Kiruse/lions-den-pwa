@@ -17,7 +17,7 @@ export default
 
   > a
     display: block
-    padding: 20px
+    padding: var(--spacing)
     margin-bottom: 4px
     &:hover
       background: rgba(0, 0, 0, 0.1)

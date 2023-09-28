@@ -34,7 +34,7 @@ ul.DaoList-root, ol.DaoList-root
   background: transparent
   border-radius: 50%
 .DaoList-itemLabel
-  font-size: 20px
+  font-size: var(--spacing)
   font-weight: bold
 </style>
 

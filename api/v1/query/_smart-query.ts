@@ -47,6 +47,13 @@ export async function getDaoProps(address: string, page: number, pageSize: numbe
   return docs.docs.map(doc => doc.data());
 }
 
+export async function getDaoProp(address: string, id: number) {
+  await updateProps(address);
+  const db = getFirestore();
+  const doc = await db.doc(`daos/${address}/props/${id}`).get();
+  return doc.data();
+}
+
 async function updateProps(address: string) {
   const db = getFirestore();
   const coll = db.collection(`daos/${address}/props`);

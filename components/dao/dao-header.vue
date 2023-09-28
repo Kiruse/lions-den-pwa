@@ -33,8 +33,8 @@ export default
   display: flex
   flex-direction: row
   align-items: center
-  gap: 20px
-  padding: 20px
+  gap: var(--spacing)
+  padding: var(--spacing)
 
 .DaoHeader-data
   flex: 1
@@ -43,7 +43,7 @@ export default
   display: flex
   flex-direction: row
   align-items: baseline
-  gap: 20px
+  gap: var(--spacing)
   padding-bottom: 10px
   margin-bottom: 10px
   border-bottom: 0.5px solid var(--line)

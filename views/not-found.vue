@@ -22,8 +22,8 @@ export default
 .NotFound-root
   width: var(--page-width)
   margin: 0 auto
-  padding: 20px
+  padding: var(--spacing)
 
   > header
-    margin-bottom: 20px
+    margin-bottom: var(--spacing)
 </style>

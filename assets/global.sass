@@ -5,8 +5,11 @@
 
 :root
   --page-width: 1000px
+  --spacing: 20px
   @media screen only and (max-width: 1000px)
     --page-width: 100%
+  @media screen only and (max-width: 600px)
+    --spacing: 10px
 
 html, body
   font-family: sans-serif
@@ -70,7 +73,7 @@ p
   flex-grow: 1
   padding: 1rem
   margin: 0 auto
-  gap: 20px
+  gap: var(--spacing)
   overflow: auto
 .Page-header
   margin-bottom: 60px

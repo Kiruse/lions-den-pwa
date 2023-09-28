@@ -20,3 +20,10 @@ export getProps = (dao) ->
     api: 'home/v1'
     params:
       address: daos[dao]?.treasury
+
+export getProp = (dao, id) ->
+  requests.get "/query/daos/props",
+    api: 'home/v1'
+    params:
+      address: daos[dao]?.treasury
+      id: id
