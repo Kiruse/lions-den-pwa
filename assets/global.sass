@@ -5,6 +5,8 @@
 
 :root
   --page-width: 1000px
+  @media screen only and (max-width: 1000px)
+    --page-width: 100%
 
 html, body
   font-family: sans-serif
@@ -63,9 +65,12 @@ p
 .Page
   display: flex
   flex-direction: column
+  width: var(--page-width)
   align-items: stretch
   flex-grow: 1
   padding: 1rem
+  margin: 0 auto
+  gap: 20px
   overflow: auto
 .Page-header
   margin-bottom: 60px

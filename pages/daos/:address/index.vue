@@ -14,17 +14,12 @@
   display: flex
   flex-direction: column
   align-items: stretch
-  gap: 20px
 
 .addr
   flex: 1
   padding: 5px
   border-radius: 5px
   border: 1px solid var(--line)
-
-.Dao-links
-  width: var(--page-width)
-  margin: 0 auto
 </style>
 
 <script lang="coffee">

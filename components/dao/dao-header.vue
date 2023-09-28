@@ -34,8 +34,6 @@ export default
   flex-direction: row
   align-items: center
   gap: 20px
-  width: var(--page-width)
-  margin: 0 auto
   padding: 20px
 
 .DaoHeader-data
