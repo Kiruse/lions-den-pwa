@@ -1,10 +1,7 @@
 <template lang="pug">
 .DaoAddress-root
   .DaoAddress-label= label
-  a.DaoAddress-value(
-    @click='copyAddress'
-    title='Copy address to clipboard'
-  )= addressShort
+  Copyable.DaoAddress-value(:value='address' title='Copy address to clipboard')= addressShort
 </template>
 
 <style lang="sass">
@@ -21,7 +18,9 @@
 </style>
 
 <script lang="coffee">
+import Copyable from '@/comp/copyable'
 export default
+  components: { Copyable }
   props:
     label:
       type: String
@@ -38,7 +37,4 @@ export default
         bechPrefix = ''
         @address
       bechPrefix + '1' + addr.slice(0, 6) + '...' + addr.slice(-6)
-  methods:
-    copyAddress: ->
-      navigator.clipboard.writeText @address
 </script>
