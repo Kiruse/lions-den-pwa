@@ -34,5 +34,5 @@ export parseExpires = (expires) ->
     return expires
 
 export getDaoByAddress = (addr) =>
-  Object.entries config.daos
-    .find ([id, meta]) =>
+  Object.values config.daos
+    .find (meta) => meta.treasury is addr
