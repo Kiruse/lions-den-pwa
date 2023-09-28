@@ -21,6 +21,11 @@ export default
   props: ['dao']
   computed:
     meta: -> config.daos[@dao]
+    daoType: -> switch @meta?.type
+      when 'token'    then 'Token DAO'
+      when 'nft'      then 'NFT DAO'
+      when 'multisig' then 'Multisig DAO'
+      else 'unknown DAO type'
 </script>
 
 <style lang="sass">
