@@ -1,4 +1,5 @@
 path = require 'path'
+CopyPlugin = require 'copy-webpack-plugin'
 HtmlWebpackPlugin = require 'html-webpack-plugin'
 {VueLoaderPlugin} = require 'vue-loader'
 {EnvironmentPlugin, ProvidePlugin} = require 'webpack'
@@ -89,6 +90,10 @@ module.exports =
     new ProvidePlugin
       Buffer: ['buffer', 'Buffer']
     new VueLoaderPlugin()
+    new CopyPlugin
+      patterns: [
+        path.resolve __dirname, 'static'
+      ]
     new HtmlWebpackPlugin
       template: path.resolve ASSETSPATH, 'app.pug'
       filename: '[name].html'

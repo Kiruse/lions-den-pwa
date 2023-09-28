@@ -5,7 +5,6 @@
   "author": "kiruse <26940742+Kiruse@users.noreply.github.com>",
   "license": "GPL-3.0",
   "scripts": {
-    "build": "node scripts/build.mjs",
     "watch": "webpack --watch --mode production",
     "webpack:serve": "webpack serve --mode development",
     "test": "tape -r ts-node/register test/**/*.spec.ts"
@@ -41,6 +40,7 @@
     "buffer": "^6.0.3",
     "coffee-loader": "^4.0.0",
     "coffeescript": "^2.7.0",
+    "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.8.1",
     "cypress": "^13.2.0",
     "file-loader": "^6.2.0",
