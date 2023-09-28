@@ -19,6 +19,7 @@
 
 <script lang="coffee">
 import Copyable from '@/comp/copyable'
+import { addr } from '@/lib/misc'
 export default
   components: { Copyable }
   props:
@@ -29,12 +30,5 @@ export default
       type: String
       required: true
   computed:
-    addressShort: ->
-      bechPrefix = @address.slice 0, @address.indexOf '1'
-      addr = if /^[a-z]+$/.test bechPrefix
-        @address.slice @address.indexOf('1') + 1
-      else
-        bechPrefix = ''
-        @address
-      bechPrefix + '1' + addr.slice(0, 6) + '...' + addr.slice(-6)
+    addressShort: -> addr @address
 </script>

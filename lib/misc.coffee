@@ -11,6 +11,15 @@ export zip = (arys...) =>
     result[i] = arys.map (a) => a[i]
   result
 
+export addr = (addr) =>
+  bechPrefix = addr.slice 0, addr.indexOf '1'
+  addr = if /^[a-z]+$/.test bechPrefix
+    addr.slice addr.indexOf('1') + 1
+  else
+    bechPrefix = ''
+    addr
+  bechPrefix + '1' + addr.slice(0, 6) + '...' + addr.slice(-6)
+
 export parseExpires = (expires) ->
   if typeof expires is 'string'
     switch
