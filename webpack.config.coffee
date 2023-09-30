@@ -90,10 +90,10 @@ module.exports =
     new ProvidePlugin
       Buffer: ['buffer', 'Buffer']
     new VueLoaderPlugin()
-    new CopyPlugin
-      patterns: [
-        path.resolve __dirname, 'static'
-      ]
+    # new CopyPlugin
+    #   patterns: [
+    #     path.resolve __dirname, 'static'
+    #   ]
     new HtmlWebpackPlugin
       template: path.resolve ASSETSPATH, 'app.pug'
       filename: '[name].html'
