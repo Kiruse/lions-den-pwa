@@ -7,19 +7,21 @@
       h3.DaoProp-type= propType
     span.DaoProp-author
       | Proposed by #[Copyable(:value='prop.proposer')= proposer]
+    DaoPropStatus.DaoProp-status(:status='prop.status')
   section.DaoProp-content
     Markdown(:contents='prop.description')
 </template>
 
 <script lang="coffee">
 import Copyable from '@/comp/copyable'
+import DaoPropStatus from '@/comp/dao/dao-prop-status'
 import Markdown from '@/comp/markdown'
 import { addr } from '@/lib/misc'
 
 # TODO: load description from IPFS where applicable
 # TODO: process & sanitize links in description
 export default
-  components: { Copyable, Markdown }
+  components: { Copyable, DaoPropStatus, Markdown }
   props:
     prop:
       type: Object
