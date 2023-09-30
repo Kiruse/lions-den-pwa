@@ -9,7 +9,8 @@
     else
       NavList.Props-content
         for prop in props.value
-          NavListItem.Props-item(:to='`#/daos/${address}/props/${prop.id}`')= prop.title
+          NavListItem.Props-item(:to='`#/daos/${address}/props/${prop.id}`')
+            | #[span.Props-itemId #{'#'}{{prop.id}}:] {{prop.title}}
 </template>
 
 <script lang="coffee">
@@ -44,4 +45,7 @@ export default
 <style lang="sass">
 .Props-spinner
   margin: 0 auto
+.Props-itemId
+  color: var(--on-background)
+  opacity: 0.5
 </style>
