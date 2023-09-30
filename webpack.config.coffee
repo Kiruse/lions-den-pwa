@@ -19,8 +19,9 @@ module.exports =
   entry:
     index:
       import: path.resolve ASSETSPATH, 'app.coffee'
-      dependOn: ['vue']
+      dependOn: ['vue', 'firebase']
     vue: 'vue'
+    firebase: path.resolve LIBPATH, 'firebase.coffee'
   resolve:
     extensions: [
       '.coffee', '.js', '.ts', '.vue', '.pug', '.sass', '.scss',
@@ -103,3 +104,5 @@ module.exports =
     # new WorkboxPlugin.InjectManifest()
     new RoutesPlugin()
   ]
+  performance:
+    assetFilter: (asset) => asset isnt 'firebase.js'

@@ -5,6 +5,7 @@
   "author": "kiruse <26940742+Kiruse@users.noreply.github.com>",
   "license": "GPL-3.0",
   "scripts": {
+    "build": "webpack --mode production",
     "watch": "webpack --watch --mode production",
     "webpack:serve": "webpack serve --mode development",
     "test": "tape -r ts-node/register test/**/*.spec.ts"
