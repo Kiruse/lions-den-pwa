@@ -3,7 +3,7 @@ CopyPlugin = require 'copy-webpack-plugin'
 HtmlWebpackPlugin = require 'html-webpack-plugin'
 {VueLoaderPlugin} = require 'vue-loader'
 {EnvironmentPlugin, ProvidePlugin} = require 'webpack'
-WorkboxPlugin = require 'workbox-webpack-plugin'
+YAML = require 'yaml'
 RoutesPlugin = require './plugins/routes-plugin'
 require 'dotenv/config'
 
@@ -91,17 +91,18 @@ module.exports =
     new ProvidePlugin
       Buffer: ['buffer', 'Buffer']
     new VueLoaderPlugin()
-    # new CopyPlugin
-    #   patterns: [
-    #     path.resolve __dirname, 'static'
-    #   ]
+    new CopyPlugin
+      patterns: [
+        path.resolve __dirname, 'static'
+      ,
+        from: path.resolve __dirname, 'assets', 'manifest.yaml'
+        to: path.resolve __dirname, 'public', 'manifest.json'
+        transform: (content) ->
+          Buffer.from JSON.stringify(YAML.parse(content.toString 'utf8'), undefined, 2)
+      ]
     new HtmlWebpackPlugin
       template: path.resolve ASSETSPATH, 'app.pug'
       filename: '[name].html'
-    # new WorkboxPlugin.GenerateSW
-    #   skipWaiting: true
-    #   clientsClaim: true
-    # new WorkboxPlugin.InjectManifest()
     new RoutesPlugin()
   ]
   performance:
